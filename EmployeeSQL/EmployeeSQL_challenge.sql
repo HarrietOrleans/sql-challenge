@@ -39,3 +39,19 @@ Create Table salaries(
 );
 select * from salaries
 
+select employees.emp_no, employees.last_name, employees.first_name, employees.sex, salaries.salary
+from employees
+inner join salaries on employees.emp_no = salaries.emp_no;
+
+select first_name, last_name, hire_date
+from employees where extract (Year from hire_date) = 1986;
+
+select dept_manager.dept_no, departments.dept_name, employees.emp_no, employees.last_name, employees.first_name
+from dept_manager
+join departments on dept_manager.dept_no = departments.dept_no
+join employees on dept_manager.emp_no = employees.emp_no;
+
+select dept_emp.dept_no, employees.emp_no, employees.last_name, employees.first_name, departments.dept_name
+from dept_emp
+join employees on dept_emp.emp_no = employees.emp_no
+join departments on dept_emp.dept_no = departments.dept_no;
